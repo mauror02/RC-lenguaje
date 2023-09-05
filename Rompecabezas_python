@@ -1,0 +1,28 @@
+
+def solucionar_rompecabezas(N):
+    # inicializo cuatro variables, var_A, var_B, var_C y var_D, con el valor 1
+    var_A = 1
+    var_B = 1
+    var_C = 1
+    var_D = 1
+
+    # comenzamos un bucle que se ejecuta N veces.
+    for i in range(1, N + 1):
+        # calculamos el resultado usando las variables actuales y se las asignamos a var_D
+        resultado = 3 * var_D + 1 * var_C + 4 * var_B + 1 * var_A
+        # actualizamos las variables de manera que cada una tome el valor de la siguiente
+        var_A = var_B
+        var_B = var_C
+        var_C = var_D
+        var_D = resultado
+
+    # mostramos en pantalla el último valor de var_D, pero solo los últimos 10 dígitos
+    print(var_D % 10000000000)  # últimos 10 dígitos de var_D
+
+# hacemos las llamadas a la función solucionar_rompecabezas con los valores solicitados
+solucionar_rompecabezas(10)  
+print()
+solucionar_rompecabezas(100)  
+print()
+result = pow(2023, 100)
+solucionar_rompecabezas(int(result))  # Llamada con N=2023 elevado a la 100
