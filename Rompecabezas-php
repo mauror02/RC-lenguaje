@@ -1,0 +1,35 @@
+<?php
+
+/**  esta funcion soluciona el rompecabezas dado un valor N
+ * @param int $N 
+ * @return int 
+ */
+function solucionar_rompecabezas($N){
+    $var_A = 1;
+    $var_B = 1;
+    $var_C = 1;
+    $var_D = 1;
+
+    for ($i = 1; $i <= $N; $i++) {
+        $resultado = 3 * $var_D + 1 * $var_C + 4 * $var_B + 1 * $var_A;
+        $var_A = $var_B;
+        $var_B = $var_C;
+        $var_C = $var_D;
+        $var_D = $resultado;
+    }
+
+    return $var_D % 10000000000; // últimos 10 dígitos de var_D
+}
+
+// invocamos a la función y mostramos el resultado en pantalla
+$resultado1 = solucionar_rompecabezas(10);
+echo "el resultado para N=10 es: ". $resultado1. "\n";
+
+$resultado2 = solucionar_rompecabezas(100);
+echo "el resultado para N=100 es: ". $resultado2. "\n";
+
+$resultado3 = pow(2023, 100);
+$resultado3 = solucionar_rompecabezas($resultado3); // 2023 elevado a la 100
+echo "el resultado para 2023^100 es: ". $resultado3. "\n";
+
+?>
